@@ -303,10 +303,8 @@ if (pk_is_checked('link_go_page')) {
 //检测链接是否属于本站
 function pk_is_cur_site($url)
 {
-    if (str_starts_with($url, home_url()) === 0) {
-        return true;
-    }
-    return false;
+    //str_starts_with()函数返回的是布尔值，而不是数值，所以不应该与0进行比较。
+    return str_starts_with($url, home_url());
 }
 
 if (pk_is_checked('use_post_menu')) {
